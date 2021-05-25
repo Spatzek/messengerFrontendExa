@@ -1,11 +1,18 @@
-<body style="margin-top: 10%; margin-left: 40%">
-<h1 style=" color: darkslategrey"> Login Screen</h1>
-<h2>
-  <input type="text" formControlName="username">
-</h2>
-<h2>
-  <input type="text" formControlName="password">
-</h2>
-<button class=""style="width: 60px; height: 22px; color: rgba(21,62,57,0.8)">Login </button>
+
+<h2 style="margin-top:5%; text-align: center;  color: darkslategrey"> Login Screen
+<body>
+<h6 style="color: darkslategrey">
+  <body style="position: relative">Login:</body>
+  <input style="background-color: #e1b3f5; align-items: center" type="text" [formControl]="message">
+</h6>
+<h6 style="color: darkslategrey">
+  <body style="position: relative">Password:</body>
+  <input style="background-color: #e1b3f5; align-items: center" type="text" [formControl]="message">
+
+</h6>
+
 </body>
+<button (click)="login()"style="color: darkslategrey;background-color: #e1b3f5; margin-left: 0%">Login</button>
+</h2>
+
 <router-outlet></router-outlet>

@@ -1,7 +1,14 @@
-<p>chat works!</p>
-<label>
-  Message:
+
+<body style="margin-left:00%; margin-top: 00% ">
+<h5>Messeges:</h5>
+<h3>
+<label style="margin-left: 0%; margin-top: -5%; position: fixed">
   <input type="text" [formControl]="message">
+  <button (click)="sendMessage()">Send</button>
 </label>
-<h3>{{message.value}}</h3>
-<button (click)="sendMessage()">Send</button>
+  <h6>{{message.value}}</h6>
+</h3>
+</body>
+
+
+
