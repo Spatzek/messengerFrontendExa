@@ -1,18 +1,23 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input formControlName="username" type="text" placeholder="Enter Username" name="uname">
 
-<h2 style="margin-top:5%; text-align: center;  color: darkslategrey"> Login Screen
-<body>
-<h6 style="color: darkslategrey">
-  <body style="position: relative">Login:</body>
-  <input style="background-color: #e1b3f5; align-items: center" type="text" [formControl]="message">
-</h6>
-<h6 style="color: darkslategrey">
-  <body style="position: relative">Password:</body>
-  <input style="background-color: #e1b3f5; align-items: center" type="text" [formControl]="message">
-
-</h6>
-
-</body>
-<button (click)="login()"style="color: darkslategrey;background-color: #e1b3f5; margin-left: 0%">Login</button>
-</h2>
-
-<router-outlet></router-outlet>
+    <label for="psw"><b>Password</b></label>
+    <input formControlName="password" type="password" placeholder="Enter Password">
+    <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+      <div *ngIf="f.password.errors.minlength">Password must be at least 5 chars</div>
+      <div *ngIf="f.password.errors.maxlength">Password cant be longer than 10</div>
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw"> <a href="#">Forgot password?</a></span>
+    <span class="signUp"><a routerLink="/create">CreateAccount</a></span>
+  </div>
+</form>

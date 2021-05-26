@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class SignUpService {
 
   constructor(private socket: Socket) { }
 
