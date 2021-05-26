@@ -1,23 +1,32 @@
-<form action="action_page.php" style="border:1px solid #ccc">
+<form [formGroup]="signupForm" (ngSubmit)="signUp()" style="border:1px solid #ccc">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input formControlName="username" type="text" placeholder="Enter Email" name="email" required>
+    <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
+      <div *ngIf="f.username.errors.minlength">Email must be at least 5 chars</div>
+      <div *ngIf="f.username.errors.maxlength">Email cant be longer than 30</div>
+      <div *ngIf="f.username.errors.required">Email is required</div>
+    </div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input formControlName="password" type="password" placeholder="Enter Password" name="psw" required>
+
+    <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+      <div *ngIf="f.password.errors.minlength">password must be at least 5 chars</div>
+      <div *ngIf="f.password.errors.maxlength">password cant be longer than 10</div>
+      <div *ngIf="f.password.errors.required">password is required</div>
+    </div>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
+    <input formControlName="password2" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <div *ngIf="this.signupForm.hasError('notSame')">Passwords dont match</div>
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
-
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
