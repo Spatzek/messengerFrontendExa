@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
     return pass === pass2 ? null : { notSame: true} ;
   }
 
-  get f(): any{
+  get fe(): any{
     return this.signupForm.controls;
   }
 

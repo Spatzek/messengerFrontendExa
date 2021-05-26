@@ -1,17 +1,17 @@
-
 <body style="margin-left:00%; margin-top: 00% ">
-<form action='http://localhost:4200/login'>
-  <input type="submit" value='Logout'>
-</form>
-<h5 style="margin-top: 2%">Messeges:</h5>
 <h3>
-<label style="margin-left: 0%; margin-top: -3.5%">
-  <input type="text" [formControl]="message">
-  <button (click)="sendMessage()">Send</button>
-</label>
-  <h6  *ngFor="let message of messages">
-    {{message}}
-  </h6>
+
+  <label>
+    <H4 style="object-position: bottom">
+    <input style="width: 400px;position: static " type="text" [formControl]="message">
+    <button style="margin-top: 0" (click)="sendMessage()">Send</button>
+    <input style="margin-left: 0%;background-color: #f44336" type="submit" value='Logout'>
+    </H4>
+    <h6 *ngFor="let message of messages">
+      {{message}}
+    </h6>
+  </label>
+
 </h3>
 </body>
 

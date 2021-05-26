@@ -2,22 +2,22 @@ body {
   border-radius: 25px;
   background: #2f4f4f;
   padding: 20px;
-  width: 400px;
-  height: auto;
+  width: 600px;
+height: 500px;
 }
-button{
+button, input{
+  width: auto;
   border-radius: 25px;
+  background-color: #e1b3f5;
+  height: 25px;
 }
 h5{
-  border-radius: 15px;
+  border-radius: 5px;
   background: #e1b3f5;
-  width: 17%;
+  width: fit-content;
 }
 h6{
   border-radius: 25px;
   background: #e1b3f5;
 }
-input{
-  background-color: #e1b3f5;
-  border-radius: 25px;
-}
+
