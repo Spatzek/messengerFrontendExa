@@ -7,7 +7,7 @@
     <input formControlName="password" type="password" placeholder="Enter Password">
     <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
       <div *ngIf="f.password.errors.minlength">Password must be at least 5 chars</div>
-      <div *ngIf="f.password.errors.maxlength">Password cant be longer than 10</div>
+      <div *ngIf="f.password.errors.maxlength">Password cant be longer than 30</div>
       <div *ngIf="f.password.errors.required">Password is required</div>
     </div>
     <button type="submit">Login</button>

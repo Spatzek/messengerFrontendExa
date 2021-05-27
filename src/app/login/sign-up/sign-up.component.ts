@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignUpService} from './Shared/SignUp.service';
 import {Router} from '@angular/router';
+import {CreateUser, GetUser} from '../../shared/states/user/user.action';
+import {first} from 'rxjs/operators';
+import {Store} from '@ngxs/store';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,8 +17,10 @@ export class SignUpComponent implements OnInit {
 
   messages: string[] = [];
 
+
   constructor(private signUpService: SignUpService,
               private formBuilder: FormBuilder,
+              private store: Store,
               private router: Router) {
   }
 
@@ -43,6 +48,14 @@ export class SignUpComponent implements OnInit {
     }
 
     console.log(this.signupForm.value.username, this.signupForm.value.password);
+    this.store.dispatch(new CreateUser(this.signupForm.value.username, this.signupForm.value.password)).pipe(first())
+      .subscribe(
+        data => {
+           this.router.navigate(['login']);
+        },
+        error => {
+
+        });
    //  this.router.navigate(['chats']);
   }
 }
