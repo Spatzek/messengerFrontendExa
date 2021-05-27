@@ -14,6 +14,20 @@ export class ChatService {
   }
   listenForMessages(): Observable<string> {
     return this.socket
-      .fromEvent<string>('messages');
+      .fromEvent<string>('newMessage');
+  }
+  getAllMessages(): Observable<string[]>{
+    return this.socket
+      .fromEvent<string[]>('allMessages');
+  }
+  disconnect(): void {
+    this.socket.disconnect();
+  }
+  connect(): void{
+    this.socket.connect();
+  }
+
+  setUserGet(msg: number): void{
+    this.socket.emit('getUser', msg);
   }
 }

@@ -1,11 +1,12 @@
-<body style="margin-left:00%; margin-top: 00% ">
+<body style="margin-left:0%; margin-top: 0% ">
 <h3>
 
   <label>
     <H4 style="object-position: bottom">
     <input style="width: 400px;position: static " type="text" [formControl]="message">
     <button style="margin-top: 0" (click)="sendMessage()">Send</button>
-    <input style="margin-left: 0%;background-color: #f44336" type="submit" value='Logout'>
+      <a routerLink="/login">
+    <input style="margin-left: 0%;background-color: #f44336" type="submit" value='Logout'></a>
     </H4>
     <h6 *ngFor="let message of messages">
       {{message}}
