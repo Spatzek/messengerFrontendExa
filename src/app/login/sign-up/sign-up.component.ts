@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    console.log(this.signupForm.value.username, this.signupForm.value.password);
+
     this.store.dispatch(new CreateUser(this.signupForm.value.username, this.signupForm.value.password)).pipe(first())
       .subscribe(
         data => {

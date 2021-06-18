@@ -34,7 +34,6 @@ export class ChatComponent implements OnInit, OnDestroy{
       });
     this.chatService.connect();
     this.chatService.setUserGet(3);
-
   }
   ngOnDestroy(): void{
     console.log('');

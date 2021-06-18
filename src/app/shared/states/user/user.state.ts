@@ -39,6 +39,7 @@ export class UserState {
   setUser({ getState, setState }: StateContext<UserStateModel>,
           { user }: SetUser): any {
         const state = getState();
+        console.log('newuser', user.username);
         setState({
           ...state,
           user,
