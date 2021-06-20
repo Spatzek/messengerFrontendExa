@@ -14,7 +14,7 @@ export class UserService {
     await this.socket.emit('getUser', {username, password});
   }
 
-   getUser(): Observable<any>{
+  getUser(): Observable<any>{
     return  this.socket
       .fromEvent<User>('getUser');
   }
