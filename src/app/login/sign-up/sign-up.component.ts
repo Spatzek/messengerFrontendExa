@@ -25,6 +25,8 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Here we assign the validators.
+    // We assign 3 validators to ensure that the data is consistent and a custom validator to check if the passwords match.
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(30)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
@@ -42,14 +44,17 @@ export class SignUpComponent implements OnInit {
     return this.signupForm.controls;
   }
 
+  // on ng submit. Execute sign up
   signUp(): void {
+    // if there any errors. Do not execute store dispatch
     if (this.signupForm.invalid){
       return;
     }
 
-
+    // Call a method inside the state called Create user.  We send in username and password.
     this.store.dispatch(new CreateUser(this.signupForm.value.username, this.signupForm.value.password)).pipe(first())
       .subscribe(
+        // The state returns a success or error message. We intercept that and on success we route the user to the login page.
         data => {
            this.router.navigate(['login']);
         },

@@ -1,5 +1,9 @@
 import {User} from './entities/user';
 
+/*
+This file functions like an interface. We store a list of all methods we can call using the this.store.dispatch.
+ */
+
 export class GetUser{
   static readonly  type = '[Auth]GetUser';
   constructor(public username: string, public password: string) {
