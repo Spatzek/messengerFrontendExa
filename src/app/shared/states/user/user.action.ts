@@ -2,6 +2,7 @@ import {User} from './entities/user';
 
 /*
 This file functions like an interface. We store a list of all methods we can call using the this.store.dispatch.
+These methods are implemented in the state.
  */
 
 export class GetUser{
