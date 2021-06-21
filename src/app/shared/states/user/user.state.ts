@@ -33,19 +33,13 @@ export class UserState {
     return state.user;
   }
 
-  @Action(GetUser)
-  getUser({ getState, setState }: StateContext<UserStateModel>,
-          { username, password }: GetUser): any {
-    return this.userService
-      .sendGetUser(username , password);
-  }
-
   // This is the set user method. We get the state and set the user up based on the data we get from the backend.!!
   @Action(SetUser)
   setUser({ getState, setState }: StateContext<UserStateModel>,
           { user }: SetUser): any {
+
         const state = getState();
-        console.log('newuser', user.username);
+
         setState({
           ...state,
           user,
@@ -57,5 +51,16 @@ export class UserState {
           { username, password }: CreateUser): any {
     return this.userService
       .createUser(username , password);
+  }
+
+
+
+
+
+  @Action(GetUser)
+  getUser({ getState, setState }: StateContext<UserStateModel>,
+          { username, password }: GetUser): any {
+    return this.userService
+      .sendGetUser(username , password);
   }
 }
