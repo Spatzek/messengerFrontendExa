@@ -53,10 +53,6 @@ export class UserState {
       .createUser(username , password);
   }
 
-
-
-
-
   @Action(GetUser)
   getUser({ getState, setState }: StateContext<UserStateModel>,
           { username, password }: GetUser): any {
