@@ -1,0 +1,15 @@
+<div>
+  <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+  <input formControlName="message" type="text" placeholder="Enter Message">
+  <div *ngIf="f.message.errors && (f.message.dirty || f.message.touched)">
+    <div *ngIf="f.message.errors.minlength">Message must be at least 1 chars</div>
+    <div *ngIf="f.message.errors.required">Message is required</div>
+  </div>
+    <button type="submit">Send</button>
+  </form>
+  <ul>
+    <li *ngFor="let message of messages| async">
+      {{message.username}} {{message.message}}
+    </li>
+  </ul>
+</div>

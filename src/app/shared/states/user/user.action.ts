@@ -11,6 +11,10 @@ export class GetUser{
   }
 }
 
+export class Logout{
+  static readonly  type = '[Auth]Logout';
+}
+
 export class SetUser{
   static readonly  type = '[Auth]SetUser';
   constructor(public user: User) {

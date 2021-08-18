@@ -2,8 +2,7 @@ import {Group} from './entities/group';
 
 export class GetGroup{
   static readonly  type = '[Auth]GetGroup';
-  constructor(public id: number) {
-  }
+
 }
 
 export class CreateGroup{
@@ -14,9 +13,16 @@ export class CreateGroup{
 
 export class SetGroup{
   static readonly  type = '[Auth] SetGroup';
+  constructor(public group: Group[]) {
+  }
+}
+
+export class SelectGroup{
+  static readonly  type = '[Auth] SelectGroup';
   constructor(public group: Group) {
   }
 }
+
 export class AddRoom{
   static readonly  type = '[Auth]AddRoom';
   constructor(public group_id: number, public room_id: number) {

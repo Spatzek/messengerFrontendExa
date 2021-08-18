@@ -1,0 +1,31 @@
+<div class="main-body">
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Group</th>
+              <th scope="col" class="text-center">Number Of Rooms</th>
+              <th> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let group of Groups | async">
+              <td>
+                {{group.group_name}}
+              </td>
+              <td>
+                {{group.list_of_rooms.length}}
+              </td>
+              <td class="text-right"><button class="btn btn-sm btn-danger" (click)="selectGroup(group)"  >Join</button> </td>
+            </tr>
+            <tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

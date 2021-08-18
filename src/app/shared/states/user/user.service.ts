@@ -11,6 +11,7 @@ export class UserService {
   constructor(private socket: Socket) { }
 
   async sendGetUser(username: string, password: string): Promise<any>{
+    console.log(username, password);
     await this.socket.emit('getUser', {username, password});
   }
 

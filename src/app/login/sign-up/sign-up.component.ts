@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
       .subscribe(
         // The state returns a success or error message. We intercept that and on success we route the user to the login page.
         data => {
-           this.router.navigate(['login']);
+           this.router.navigate(['']);
         },
         error => {
 

@@ -1,0 +1,19 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <ul class="navbar-nav w-100 d-flex nav-center">
+      <li  class="nav-item">
+        <a [routerLink]="['/groups']" [routerLinkActive]="['active']"  class="nav-link padding-nav-link">Groups</a>
+      </li>
+      <div class="group navbar">
+        <li class="nav-item profile-name" *ngIf="currentU">
+          {{currentU.username}}
+        </li>
+        <li class="nav-item account-bnt" *ngIf="!currentU">
+          <a [routerLink]="['/']" [routerLinkActive]="['active']" class="nav-link padding-nav-link">Login</a>
+        </li>
+        <li class="nav-item account-bnt" (click)="signOut();" *ngIf="currentU">
+          <a class="nav-link padding-nav-link">Log out</a>
+        </li>
+      </div>
+    </ul>
+</nav>

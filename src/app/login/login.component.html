@@ -10,12 +10,11 @@
       <div *ngIf="f.password.errors.maxlength">Password cant be longer than 30</div>
       <div *ngIf="f.password.errors.required">Password is required</div>
     </div>
-    <a routerLink="/room">
-      <button type="submit">Login</button></a>
+      <button type="submit">Login</button>
     <label>
     </label>
   </div>
   <div class="container" style="background-color:#f1f1f1">
-    <span type="signUp"><a routerLink="/signUp">CreateAccount</a></span>
+    <span type="signUp"><a [routerLink]="['/signUp']">CreateAccount</a></span>
   </div>
 </form>

@@ -12,6 +12,12 @@ export class SetRoom{
   }
 }
 
+export class ClearRooms{
+  static readonly  type = '[Auth] ClearRooms';
+  constructor() {
+  }
+}
+
 export class CreateRoom{
   static readonly  type = '[Auth]CreateRoom';
   constructor(public name: string) {

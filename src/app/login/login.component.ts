@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.actions$.pipe(ofActionSuccessful(SetUser),
       takeUntil(this.ngUnsubscribe)).subscribe(() => {
         if (this.user) {
-          this.router.navigate(['room']);
+          this.router.navigate(['/groups']);
         }
     });
   }

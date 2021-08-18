@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Action, Selector, State, StateContext, Store} from '@ngxs/store';
 import {User} from './entities/user';
-import {CreateUser, GetUser, SetUser} from './user.action';
+import {CreateUser, GetUser, Logout, SetUser} from './user.action';
 import {UserService} from './user.service';
 
 // StateModel is used to initialise the variables.
@@ -44,6 +44,17 @@ export class UserState {
           ...state,
           user,
         });
+  }
+
+  @Action(Logout)
+  logout({ getState, setState }: StateContext<UserStateModel>): any {
+
+    const state = getState();
+
+    setState({
+      ...state,
+      user: undefined,
+    });
   }
  // This is where Create user method is executed. We will send a socket request to the backend and pass username and password as an object.
   @Action(CreateUser)
